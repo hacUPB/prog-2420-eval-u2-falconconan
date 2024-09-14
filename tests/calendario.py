@@ -1,25 +1,4 @@
 
-def saludo( ):
-    from os import system
-    ls_genero=["sr","sra"]
-    control=True
-    while control==True:
-        system("cls")
-        genero=input("ingrese sr. o sra.") 
-        if genero in ls_genero:
-            nombre=input("cual es su nombre")
-            apellido=input("cual es su apellido")
-            control=False
-            return  genero, nombre, apellido
-        else:
-            print("dato no valido")
-            control=True
-
-        
-genero,nombre,apellido=saludo()
-print (genero,nombre,apellido," ¡Bienvenido a FastFast Airlines!")
-#-----------------------------------------------------------------------------
-#seleccion de vuelo
 
 def seleccion_de_vuelo():
     from datetime import datetime
@@ -29,6 +8,7 @@ def seleccion_de_vuelo():
     destino_deseado = input(f"Hacia dónde te diriges entre {ls_ciudades} ")
     if origen_deseado == destino_deseado:
         print("No debes viajar")
+        return
     if (origen_deseado == "medellin" and destino_deseado == "bogota") or (origen_deseado == "bogota" and destino_deseado == "medellin"):
         distancia = 240
     elif (origen_deseado == "medellin" and destino_deseado == "cartagena") or (origen_deseado == "cartagena" and destino_deseado == "medellin"):
@@ -37,6 +17,7 @@ def seleccion_de_vuelo():
         distancia = 657
     else:
         print("Ruta no válida")
+        return
     
     year=int(input("en que año desea viajar: "))
     print(calendar.calendar(year))
@@ -58,4 +39,7 @@ def seleccion_de_vuelo():
             return origen_deseado, destino_deseado, fecha_seleccionada, precio
         else:
             print("dato no valido")
-            control=False
+            control=True
+
+origen, destino, dia, precios = seleccion_de_vuelo()
+print(f"El precio del vuelo es: {precios}\n el dia: {dia}")
