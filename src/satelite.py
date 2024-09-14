@@ -5,7 +5,7 @@ def main():
     altura_minima=float(input("determine la altura minima de seguridad"))
     altitud_orbita=altura_inicial
     orbitas=0
-    for altura_minima in range (altitud_orbita): 
+    for altitud_orbita in range (int(altura_minima)):
         altitud_desendida=altura_inicial*coeficiente_arrastre
         altitud_orbita=-altitud_desendida
         coeficiente_arrastre=coeficiente_arrastre+1e-5
